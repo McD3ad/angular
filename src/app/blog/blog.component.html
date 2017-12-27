@@ -1,0 +1,10 @@
+<div class="columns is-multiline">
+  <div class="column is-half-tablet is-4-desktop" *ngFor="let article of results">
+    <article class="blog-article">
+      <h4>
+        <a routerLink="{{ article.id }}" [innerHtml]="article.title.rendered"></a>
+      </h4>
+      <div class="excerpt" [innerHtml]="article.excerpt.rendered"></div>
+    </article>
+  </div>
+</div>
