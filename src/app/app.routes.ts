@@ -12,7 +12,7 @@ export const routes = [
         component: BlogComponent
     },
     {
-        path: 'posts/:id',
+        path: 'posts/:slug',
         component: PostComponent
     }
 ]

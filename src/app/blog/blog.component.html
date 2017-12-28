@@ -1,10 +1,18 @@
-<div class="columns is-multiline">
-  <div class="column is-half-tablet is-4-desktop" *ngFor="let article of results">
+<div class="row">
+  <div class="col-md-6 col-lg-4" *ngFor="let article of results">
     <article class="blog-article">
-      <h4>
-        <a routerLink="{{ article.id }}" [innerHtml]="article.title.rendered"></a>
-      </h4>
+      <h5>
+        <a routerLink="{{ article.slug }}" [innerHtml]="article.title.rendered"></a>
+      </h5>
       <div class="excerpt" [innerHtml]="article.excerpt.rendered"></div>
     </article>
   </div>
+</div>
+
+<div class="text-center mt-3">
+  <button class="btn btn-primary" (click)="getPosts()">
+    <span *ngIf="loading">Загружаю </span>
+    <span *ngIf="!loading">Загрузить еще...</span>
+  </button>
+  <em class="button-description">&mdash; Уже загружено {{ itemsCount }} записей.</em>
 </div>

@@ -25,10 +25,10 @@ export class PostComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let id = this.route.snapshot.paramMap.get('id');
+    let slug = this.route.snapshot.paramMap.get('slug');
 
-    this.http.get(Configuration.apiUrl + '/posts/' + id).subscribe(data => {
-      this.post = data;
+    this.http.get(Configuration.apiUrl + '/posts?slug=' + slug).subscribe(data => {
+      this.post = data[0];
     })
   }
 
