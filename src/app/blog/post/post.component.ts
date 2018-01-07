@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Configuration } from '../../app.constants';
+import { environment } from '@env/environment';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -27,7 +27,7 @@ export class PostComponent implements OnInit {
   ngOnInit() {
     let slug = this.route.snapshot.paramMap.get('slug');
 
-    this.http.get(Configuration.apiUrl + '/posts?slug=' + slug).subscribe(data => {
+    this.http.get(environment.api + '/posts?slug=' + slug).subscribe(data => {
       this.post = data[0];
     })
   }
